@@ -1,0 +1,124 @@
+# Link map of F_EntryPoint
+
+
+
+# .interrupt_vectors
+#>00000000          F_vba   (linker command file)
+  00000000 00000066 interrupt_vectors.text F_vect	(Vectors.c)
+
+# .ApplicationCode
+#>000000CC          F_Pcode_start_addr (linker command file)
+  000000CC 00000046 .text   F_EntryPoint	(Cpu.c)
+  00000112 00000007 .text   FCpu_Interrupt	(Cpu.c)
+  00000119 0000002B .text   FCpu__ivINT_GPIO_C	(Cpu.c)
+  00000144 0000000E .text   FCpu_Delay100US	(Cpu.c)
+  00000152 0000013D .text   FPE_low_level_init	(Cpu.c)
+  0000028F 000001E7 .text   Fdc18_badge	(DC18_Badge.c)
+  00000476 00000054 .text   Fdc18_get_buttons	(DC18_Badge.c)
+  000004CA 000001C4 .text   Fdc18_change_state	(DC18_Badge.c)
+  0000068E 00000016 .text   Fdc18_clear_fb	(DC18_Badge.c)
+  000006A4 00000028 .text   Fdc18_load_image	(DC18_Badge.c)
+  000006CC 00000072 .text   Fdc18_load_tumblers	(DC18_Badge.c)
+  0000073E 00000011 .text   Fdc18_update_lcd	(DC18_Badge.c)
+  0000074F 00000004 .text   Fdc18_usb_send_ack	(DC18_Badge.c)
+  00000753 00000015 .text   Fdc18_init	(DC18_Badge.c)
+  00000768 00000034 .text   Fdc18_sleep	(DC18_Badge.c)
+  0000079C 00000018 .text   Fdc18_ninja_validate	(DC18_Badge.c)
+  000007B4 00000029 .text   Fdc18_encode_tumblers	(DC18_Badge.c)
+  000007DD 00000045 .text   FSendChar	(DC18_Badge.c)
+  00000822 00000011 .text   FDelay	(DC18_Badge.c)
+  00000833 00000044 .text   FBitIO__PutVal	(LED0.c)
+  00000877 0000000D .text   Fmain	(DC18.c)
+  00000884 00000001 .text   FEINT_SW1_OnInterrupt	(Events.c)
+  00000885 00000001 .text   FEINT_SW0_OnInterrupt	(Events.c)
+  00000886 00000019 .text   FWaitNonBusy	(DC18_LCD.c)
+  0000089F 00000017 .text   FZeroSPILines	(DC18_LCD.c)
+  000008B6 00000053 .text   FDisplay	(DC18_LCD.c)
+  00000909 00000161 .text   FDriveImage	(DC18_LCD.c)
+  00000A6A 00000056 .text   FLoadData	(DC18_LCD.c)
+  00000AC0 000000C1 .text   FLoadBorder	(DC18_LCD.c)
+  00000B81 0000006F .text   FPutCharSPI	(DC18_LCD.c)
+  00000BF0 00000014 .text   FHardResetDisplay	(DC18_LCD.c)
+  00000C04 0000000A .text   FTerm_SendChar	(Term.c)
+  00000C0E 0000000A .text   FTerm_ReadChar	(Term.c)
+  00000C18 0000000A .text   FTerm_KeyPressed	(Term.c)
+  00000C22 00000016 .text   FTerm_SendStr	(Term.c)
+  00000C38 00000006 .text   FHWEnDi	(Inhr6.c)
+  00000C3E 00000021 .text   FInhr6_RecvChar	(Inhr6.c)
+  00000C5F 00000015 .text   FInhr6_SendChar	(Inhr6.c)
+  00000C74 0000000C .text   FInhr6_GetCharsInRxBuf	(Inhr6.c)
+  00000C80 0000000F .text   FInhr6_Init	(Inhr6.c)
+  00000C8F 00000000 rtlib.text ARTREMS16Z	(Runtime 56800E.Lib artrems16z.o   )
+  00000C8F 00000021 rtlib.text rtlib.text	(Runtime 56800E.Lib artrems16z.o   )
+  00000CB0 00000042 rtlib.text rtlib.text	(Runtime 56800E.Lib save_reg.o     )
+  00000CB0 00000000 rtlib.text INTERRUPT_SAVEALL	(Runtime 56800E.Lib save_reg.o     )
+  00000CD3 00000000 rtlib.text INTERRUPT_RESTOREALL	(Runtime 56800E.Lib save_reg.o     )
+  00000CF2 00000045 startup.text Finit_56800_	(56F80xx_init.asm)
+  00000CF2 00000045 startup.text startup.text	(56F80xx_init.asm)
+  00000D37 00000294 .const.data.pmem Fdc18Glyphs	(DC18_Badge.c)
+  00000FCB 00000700 .const.data.pmem Fdc18Images	(DC18_Badge.c)
+#>000016CB          F_Pcode_end_addr (linker command file)
+#>000016CC          __pROM_data_start (linker command file)
+
+# .data_in_p_flash_ROM
+#>00000001          __xRAM_data_start (linker command file)
+  00000001 0000003C .const.data Fdc18Ninja	(DC18_Badge.c)
+  0000003D 00000005 .const.data Fdc18Tumbler	(DC18_Badge.c)
+  00000042 00000008 .const.data Fdc18TX	(DC18_Badge.c)
+  0000004A 00000010 .const.data F@122	(DC18_Badge.c)
+  0000005A 00000006 .data   FBitIO_portDsc	(Cpu.c)
+  00000060 00000001 .data   FgSTATE_CHANGE	(DC18_Badge.c)
+  00000061 00000001 .data   FgNINJA_EN	(DC18_Badge.c)
+#>00000062          __xRAM_data_end (linker command file)
+#>00000061          __data_size (linker command file)
+
+# .ApplicationData
+#>00000064          F_Xbss_start_addr (linker command file)
+#>00000064          _START_BSS (linker command file)
+  00000064 00000001 .bss    Fbadge_state	(DC18_Badge.c)
+  00000065 00000001 .bss    FgSW	(DC18_Badge.c)
+  00000066 00000001 .bss    FgUSB_EN	(DC18_Badge.c)
+  00000067 0000000F .bss    FgTumblers	(DC18_Badge.c)
+  0000006E 00000001 .bss    FgTumblerIdx	(DC18_Badge.c)
+  0000006F 00000001 .bss    FgIconIdx	(DC18_Badge.c)
+  00000070 00000001 .bss    FgLoc	(DC18_Badge.c)
+  00000071 00000200 .bss    FgFB	(DC18_Badge.c)
+  00000171 00000001 .bss    FSerFlag	(Inhr6.c)
+#>00000172          _END_BSS (linker command file)
+#>0000010E          F_Xbss_length (linker command file)
+#>00000174          _HEAP_ADDR (linker command file)
+#>00000100          _HEAP_SIZE (linker command file)
+#>00000274          _HEAP_END (linker command file)
+#>00000180          _min_stack_size (linker command file)
+#>00000274          _stack_addr (linker command file)
+#>000003F4          _stack_end (linker command file)
+#>00000174          F_heap_addr (linker command file)
+#>00000274          F_heap_end (linker command file)
+#>00000274          F_Lstack_addr (linker command file)
+#>00000274          F_StackAddr (linker command file)
+#>000003F3          F_StackEndAddr (linker command file)
+#>00000061          F_Ldata_size (linker command file)
+#>00000001          F_Ldata_RAM_addr (linker command file)
+#>000016CC          F_Ldata_ROM_addr (linker command file)
+#>00000000          F_xROM_to_xRAM (linker command file)
+#>00000001          F_pROM_to_xRAM (linker command file)
+#>00000064          F_start_bss (linker command file)
+#>00000172          F_end_bss (linker command file)
+#>000003F4          __DATA_END (linker command file)
+
+# .ApplicationConfiguration
+
+
+# Memory map:
+  v_addr   p_addr   size     name
+  0000F000 0000F000 00000000 .x_Peripherals
+  00000000 00000000 00000004 .p_Interruptsboot
+  00000000 00000000 00000066 .p_Interrupts
+  000000CC 000000CC 00001600 .p_Code
+  00000001 00000001 000003F3 .x_Data
+  00001AFE 00001AFE 00000001 .xBootCfg
+  000016CC 00000001 00000061 .p_flash_ROM_data
+  00008000 00008000 00000400 .p_internal_RAM
+
+# Link start time: Tue Jun 01 20:33:30 2010
+# Link end time: Tue Jun 01 20:33:30 2010

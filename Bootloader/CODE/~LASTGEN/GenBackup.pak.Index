@@ -1,0 +1,24 @@
+[PACKAGE INDEX]
+FileCount=5
+FileName=AllTimeStampLines.#$%(;
+FileOffset=0
+FileSize=1175
+FileDate=-1
+FileName=Cpu.c
+FileOffset=1175
+FileSize=15164
+FileDate=1019318065
+FileName=Cpu.h
+FileOffset=16339
+FileSize=7380
+FileDate=1019318065
+FileName=SCI1.c
+FileOffset=23719
+FileSize=4349
+FileDate=1019318064
+FileName=SCI1.h
+FileOffset=28068
+FileSize=3297
+FileDate=1019318064
+
+[_end_]

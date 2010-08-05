@@ -1,0 +1,104 @@
+# Link map of F_EntryPoint
+
+
+
+# .interrupt_vectorsboot
+#>00000000          F_vector_addr (linker command file)
+  00000000 00000004 interrupt_vectorsboot.text F_vectboot	(Vectors.c)
+#>00000004          Fpflash_index (linker command file)
+
+# .ApplicationCode
+  00001B00 0000002C .text   F_EntryPoint	(Cpu.c)
+  00001B2C 00000041 startup.text startup.text	(56F80xx_init.asm)
+  00001B2C 0000003F startup.text Finit_56800_	(56F80xx_init.asm)
+  00001B6B 00000002 startup.text F@DummyFn1	(56F80xx_init.asm)
+  00001B6D 00000118 .text   Fmain	(static_bootloader.c)
+  00001C85 00000024 .text   FbootExit	(static_bootloader.c)
+  00001CA9 00000016 .text   Fchar_to_int	(bootloader_lib.c)
+  00001CBF 0000000A .text   Fint_to_char	(bootloader_lib.c)
+  00001CC9 0000001A .text   Fint_to_string	(bootloader_lib.c)
+  00001CE3 0000000E .text   Fsci_tx	(bootloader_lib.c)
+  00001CF1 00000006 .text   Fsci_tx_char	(bootloader_lib.c)
+  00001CF7 000000B2 .text   Fsrec_decode	(bootloader_lib.c)
+  00001DA9 00000018 .text   Fget_byte	(bootloader_lib.c)
+  00001DC1 0000000C .text   Fget_char	(bootloader_lib.c)
+  00001DCD 00000003 .text   Fmem_init	(bootloader_lib.c)
+  00001DD0 00000007 .text   FCpu_Interrupt	(Cpu.c)
+  00001DD7 0000000E .text   FCpu_Delay100US	(Cpu.c)
+  00001DE5 00000056 .text   FPE_low_level_init	(Cpu.c)
+  00001E3B 0000000A .text   FSCI1_Init	(SCI1.c)
+#>00001E45          Fpflash_mirror (linker command file)
+#>00001E45          Fpflash_index (linker command file)
+
+# .data_in_x_ram_bss
+#>00000000          F_Xbss_start_addr (linker command file)
+#>00000000          _START_BSS (linker command file)
+  00000000 00000226 .bss    Frx_data	(bootloader_lib.c)
+  00000114 00000002 .bss    FStartAddress	(static_bootloader.c)
+  00000116 00000001 .bss    Fdata_in	(bootloader_lib.c)
+  00000117 00000005 .bss    Fhex_string	(bootloader_lib.c)
+  0000011A 00000001 .bss    Fdata_out	(bootloader_lib.c)
+  0000011B 00000001 .bss    Fstatus	(bootloader_lib.c)
+  0000011C 00000001 .bss    Fbytesum	(bootloader_lib.c)
+#>0000011D          _END_BSS (linker command file)
+#>0000011D          F_Xbss_length (linker command file)
+
+# .prog_in_p_flash_ROM
+#>00008180          Fpram_start (linker command file)
+#>00008180          F_vba   (linker command file)
+  00008180 00000066 interrupt_vectors.text F_vect	(Vectors.c)
+  000081E6 00000012 pram_code.text Ffisr_sci_rx_full	(bootloader_lib.c)
+  000081F8 00000034 pram_code.text Fhfm_command	(bootloader_lib.c)
+#>0000822C          Fpram_end (linker command file)
+#>000000AC          Fpram_size (linker command file)
+#>00001EF1          Fpflash_mirror2 (linker command file)
+#>00001EF1          Fpflash_index (linker command file)
+
+# .data_in_p_flash_ROM
+#>00000126          Fxram_start (linker command file)
+  00000126 00000002 .const.data F@215	(bootloader_lib.c)
+  00000128 00000075 .data   FStrCopyright	(static_bootloader.c)
+  00000162 0000003E .data   FStrWaitingSrec	(static_bootloader.c)
+  00000181 00000014 .data   FStrLoaded	(static_bootloader.c)
+  0000018B 0000001C .data   FStrStarted	(static_bootloader.c)
+  00000199 00000004 .data   FStrNewLine	(static_bootloader.c)
+  0000019B 0000000A .data   FStrErr	(static_bootloader.c)
+#>000001A2          Fxram_end (linker command file)
+#>0000007C          Fxram_size (linker command file)
+#>00001F6D          Fpflash_index (linker command file)
+
+# .data_in_x_ram
+#>0000024C          _HEAP_ADDR (linker command file)
+#>00000000          _HEAP_SIZE (linker command file)
+#>0000024C          _HEAP_END (linker command file)
+#>00000080          _min_stack_size (linker command file)
+#>0000024C          _stack_addr (linker command file)
+#>000002CC          _stack_end (linker command file)
+#>000002CC          __DATA_END (linker command file)
+#>0000F000          FArchIO (linker command file)
+#>0000024C          F_heap_addr (linker command file)
+#>0000024C          F_heap_end (linker command file)
+#>0000024C          F_Lstack_addr (linker command file)
+#>0000024C          F_StackAddr (linker command file)
+#>000002CB          F_StackEndAddr (linker command file)
+#>00000000          F_Ldata_size (linker command file)
+#>00000000          F_Ldata_RAM_addr (linker command file)
+#>00000000          F_Ldata_ROM_addr (linker command file)
+#>00000000          F_xROM_to_xRAM (linker command file)
+#>00000001          F_pROM_to_xRAM (linker command file)
+#>00000000          F_start_bss (linker command file)
+#>0000011D          F_end_bss (linker command file)
+
+
+# Memory map:
+  v_addr   p_addr   size     name
+  00000000 00000000 00000004 .pIntvectorBoot
+  00001B00 00001B00 00000345 .pFlash
+  00000000 00000000 0000011D .xRAM_bss
+  00001EF1 00000126 0000007C .xRAM_data
+  00001E45 00008180 000000AC .pRAM
+  0000024C 0000024C 00000080 .xRAM
+  0000F000 0000F000 00000000 .xPeripherals
+
+# Link start time: Tue Jun 01 20:29:49 2010
+# Link end time: Tue Jun 01 20:29:49 2010

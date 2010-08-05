@@ -1,0 +1,8 @@
+; This is an automaticaly generated file from Processor Expert, please do not modify it !
+C_Cpu_reg_COP_CTRL=0
+C_Cpu_reg_OCCS_CTRL_bit_PLLPD=1
+C_Cpu_reg_OCCS_CTRL_bit_PRECS=0
+C_Cpu_reg_OCCS_CTRLZSRC=1
+C_Cpu_reg_OCCS_OCTRL_bit_CLK_MODE=1
+C_Cpu_reg_SIM_PCE_bit_COP_0=0
+C_Cpu_reg_SIM_PCE_bit_COP=1
