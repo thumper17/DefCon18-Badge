@@ -1,5 +1,36 @@
-This is a copy of the DefCon 18 Badge source code (written by Kingpin),
-directly from the conference CD.  The original code and other information
-can be found on Kingpin's website:
+This is a copy of the DefCon 18 Badge source code (written by
+Kingpin), directly from the conference CD.  The original code and
+other information can be found on Kingpin's website:
   http://www.grandideastudio.com/portfolio/defcon-18-badge/
+
+The purpose of this repository is to give git users a "reference copy"
+that can be cloned/forked, and a way for other users to discover these
+forks.
+
+==========
+
+If, like me, you already had a git repository of the sources, then you
+can still create a fork without losing your entire version history.
+The "git filter-branch" command will let you prepend another history
+before your initial commit.  The man page describes the different
+scenarios, but if you have a typical repository with only a single
+initial/root commit, you can use the same steps I took:
+
+1. Load the reference copy commits into my local repository:
+  $ git remote add refcopy git://github.com/thumper17/DefCon18-Badge.git
+  $ git fetch refcopy
+
+2. Pick a commit from the reference copy to be the parent of your
+   initial commit. (I use "gitk --all &" to inspect all the commits.)
+   Currently, commit 6111b673... is the newest commit in the reference
+   copy, so I chose that to be the parent of my initial commit.
+
+3. Rewrite the parent.  (Replace "6111b67" with the commit id that you
+   chose.)
+  $ git filter-branch --parent-filter 'sed "s/^\$/-p 6111b67/"' HEAD
+
+4. Now you can remove the 'refcopy' source.
+  $ git remote rm refcopy
+
+5. And push to your github account!
 
